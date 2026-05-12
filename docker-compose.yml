@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  # 1. Base de datos MySQL
+  db:
+    image: mysql:8.0
+    container_name: tripandjoy2_db
+    restart: always
+    environment:
+      MYSQL_DATABASE: tripandjoy2
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_HOST: '%'
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - tripandjoy_network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  # 2. Backend (Laravel / PHP)
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: tripandjoy2_backend
+    ports:
+      - "8000:8000"
+    environment:
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_USERNAME=root
+      - DB_PASSWORD=root
+      - DB_DATABASE=tripandjoy2
+    volumes:
+      - ./backend:/app
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - tripandjoy_network
+
+  # 3. Frontend (Angular / Node)
+  frontend:
+    image: node:20
+    container_name: tripandjoy2_frontend
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "4200:4200"
+    command: >
+      bash -c "npm install && npx ng serve --host 0.0.0.0 --poll 2000"
+    networks:
+      - tripandjoy_network
+
+volumes:
+  db_data:
+
+networks:
+  tripandjoy_network:
+    driver: bridge
