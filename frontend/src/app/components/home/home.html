@@ -1,0 +1,66 @@
+<section class="hero-section">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>MEJORA AÚN MÁS TUS <span class="texto-naranja">PLANES</span> DE VIAJE <br> CON NOSOTROS</h1>
+    <p class="subtitle">Un nuevo comienzo, conlleva grandes experiencias</p>
+    <div class="search-container">
+      <i class="search-icon">🔍</i>
+      <input type="text" placeholder="BUSCA TU DESTINO">
+    </div>
+  </div>
+  <div class="flecha-v" (click)="onVClick()" style="cursor: pointer;">v</div>
+</section>
+
+@if (isLoginVisible) {
+  <app-login (cerrarLogin)="cerrarLoginModal()"></app-login>
+}
+
+@if (!auth.isLoggedIn()) {
+
+  <section id="servicios" class="servicios-section">
+    <div class="section-header">
+      <h2>¿Qué vas a descubrir con nosotros?</h2>
+      <p>Todo lo que necesitas para tu aventura ideal, en un solo lugar.</p>
+    </div>
+    
+    <div class="cards-grid">
+      <div class="service-card bg-alojamientos">
+        <div class="card-icon">🏨</div>
+        <h3>Alojamientos</h3>
+        <p>Desde hoteles boutique en el centro hasta cabañas perdidas en la montaña.</p>
+        <button class="btn-detalles" (click)="verDetalles('/alojamientos')">Ver alojamientos</button>
+      </div>
+
+      <div class="service-card bg-actividades">
+        <div class="card-icon">🏄‍♂️</div>
+        <h3>Actividades</h3>
+        <p>Excursiones guiadas, deportes extremos y experiencias culturales únicas.</p>
+        <button class="btn-detalles" (click)="verDetalles('/actividades')">Explorar actividades</button>
+      </div>
+
+      <div class="service-card bg-transporte">
+        <div class="card-icon">✈️</div>
+        <h3>Transporte</h3>
+        <p>Vuelos, alquiler de coches y traslados privados desde el aeropuerto.</p>
+        <button class="btn-detalles" (click)="verDetalles('/transporte')">Ver servicios</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews-section">
+    <h2>Lo que dicen nuestros viajeros</h2>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>"Encontré la cabaña perfecta gracias a Trip N' Joy. Todo muy fácil y bien organizado."</p>
+        <span class="author">- Laura G.</span>
+      </div>
+      <div class="review-card">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>"Las actividades que recomiendan son de otro nivel. El mejor viaje de mi vida."</p>
+        <span class="author">- Carlos M.</span>
+      </div>
+    </div>
+  </section>
+
+}

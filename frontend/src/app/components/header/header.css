@@ -1,0 +1,244 @@
+/* =========================================
+   HEADER PRINCIPAL CON EFECTO CRISTAL
+   ========================================= */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+  /* Posición fija arriba del todo */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  
+  /* Color de fondo sutil (Blanco muy transparente) */
+  background-color: rgba(255, 255, 255, 0.10); 
+  
+  /* Desenfoque de fondo (Backdrop Filter) */
+  -webkit-backdrop-filter: blur(12px); 
+  backdrop-filter: blur(12px);         
+  
+  /* Bordes y Sombras para dar profundidad de cristal */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); 
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);          
+  
+  z-index: 1000;
+  
+  /* 👇 TEXTO EN BLANCO PARA QUE SE VEA SOBRE FONDO OSCURO 👇 */
+  color: #ffffff; 
+}
+
+/* =========================================
+   ANIMACIÓN DEL LOGOTIPO
+   ========================================= */
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 80px;
+  width: auto;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+}
+
+.logo-img:hover {
+  transform: scale(1.05) rotate(-5deg); 
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5)); /* Brillo blanco */
+}
+
+/* ============================
+   MENÚ DE NAVEGACIÓN
+   ============================ */
+.nav-menu ul {
+  display: flex !important;
+  flex-direction: row;
+  gap: 40px;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+}
+
+.nav-menu li {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.3s, text-shadow 0.3s;
+  /* 👇 Texto blanco 👇 */
+  color: #ffffff; 
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: inherit; 
+  cursor: pointer;
+}
+
+.nav-menu li:hover {
+  /* Al pasar el ratón se pone del color dorado/naranja de tu botón para que destaque */
+  color: #ffcf75; 
+  text-shadow: 0 0 8px rgba(255, 207, 117, 0.4); /* Pequeño resplandor */
+}
+
+.arrow {
+  font-size: 0.7rem;
+  transform: scaleX(1.2);
+  /* 👇 Flecha blanca 👇 */
+  color: #ffffff; 
+}
+
+/* =========================================
+   ESTILOS DEL BOTÓN "ÚNETE"
+   ========================================= */
+.user-actions {
+  display: flex;
+  align-items: center;
+}
+
+.join-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: transparent;
+  padding: 8px 24px;
+  border-radius: 500px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  /* 👇 Borde y texto en blanco 👇 */
+  color: #ffffff;
+  border: 2px solid #ffffff; 
+}
+
+.join-btn:hover {
+  background-color: #ffcf75; 
+  color: #2c3e50; /* Texto oscuro al pasar el ratón para que contraste con el fondo naranja */
+  border-color: #ffcf75;     
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 207, 117, 0.3); /* Sombra anaranjada */
+}
+
+/* --- ESTILOS DEL MENÚ DESPLEGABLE --- */
+
+.perfil-dropdown {
+  position: relative; /* Necesario para que el menú flote debajo de este elemento */
+  display: inline-block;
+}
+
+/* El menú oculto por defecto */
+.dropdown-menu {
+  display: none; 
+  position: absolute;
+  top: 100%; /* Se coloca justo debajo del botón "Mi Perfil" */
+  right: 0; /* Alineado a la derecha */
+  background-color: #ffffff;
+  min-width: 180px;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
+  z-index: 1000;
+  padding: 0.5rem 0;
+  overflow: hidden;
+  margin-top: 5px; /* Un pequeño margen visual */
+}
+
+/* Mostrar el menú al hacer HOVER en el contenedor principal */
+.perfil-dropdown:hover .dropdown-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilo de las opciones del menú */
+.dropdown-menu .menu-item {
+  color: #334155;
+  padding: 12px 20px;
+  text-decoration: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-menu .menu-item:hover {
+  background-color: #f1f5f9; /* Gris muy clarito al pasar el ratón */
+}
+
+/* Estilo especial rojo para "Cerrar sesión" */
+.dropdown-menu .logout-btn {
+  color: #ef4444;
+  border-top: 1px solid #f1f5f9; /* Una pequeña línea separadora */
+}
+
+.dropdown-menu .logout-btn:hover {
+  background-color: #fef2f2; /* Rojito claro al pasar el ratón */
+}
+
+/* ==============================================================
+   ESTILOS EXCLUSIVOS PARA EL MODO ADMINISTRADOR (.admin-mode)
+   (El resto de usuarios conservará el efecto cristal original)
+   ============================================================== */
+
+/* Quitamos el cristal y ponemos un fondo oscuro sólido */
+.main-header.admin-mode {
+  background-color: #121212; /* Negro */
+  -webkit-backdrop-filter: none; 
+  backdrop-filter: none;
+  border-bottom: 3px solid #3b82f6; /* Borde inferior azul brillante */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Chapa de 'ADMIN' al lado del logo */
+.admin-badge {
+  background-color: #3b82f6; 
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 4px 8px;
+  border-radius: 6px;
+  margin-left: 15px;
+  letter-spacing: 1.5px;
+  box-shadow: 0 2px 10px rgba(59, 130, 246, 0.3);
+}
+
+/* Menú del administrador: Efecto hover en azul (en vez de naranja) */
+.main-header.admin-mode .nav-menu li:hover {
+  color: #38bdf8; 
+  text-shadow: 0 0 8px rgba(56, 189, 248, 0.4); 
+}
+
+/* Botón "Panel de Control" con estilo propio */
+.main-header.admin-mode .btn-perfil {
+  color: #38bdf8;
+  font-weight: 700;
+  border: 1px solid #38bdf8;
+  padding: 6px 15px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.main-header.admin-mode .btn-perfil:hover {
+  background-color: #38bdf8;
+  color: #0f172a;
+}
+
+
+/* =========================================================
+   RESPONSIVIDAD: EN PANTALLAS PEQUEÑAS, EL MENÚ SE HACE MÁS COMPACTO
+   ========================================================= */
+@media (max-width: 768px) {
+  .nav-menu ul {
+    gap: 20px;
+  }
+} 

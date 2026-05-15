@@ -1,0 +1,81 @@
+<div class="admin-dashboard-layout">
+  <div class="main-content">
+    
+    <header class="dashboard-header">
+      <div class="header-titles">
+        <h1>Resumen General</h1>
+        <p class="subtitle">Bienvenido al panel de control de Trip N' Joy. Aquí tienes las métricas clave.</p>
+      </div>
+      </header>
+
+    <section class="metrics-grid">
+      
+      <div class="metric-card accent-activities">
+        <div class="card-content">
+          <div class="metric-info">
+            <span class="metric-label">Actividades</span>
+            <span class="metric-value">{{ totalActividades | number:'1.0-0' }}</span> </div>
+          <div class="metric-icon">
+            <span class="icon-placeholder">🏃‍♂️</span> </div>
+        </div>
+        <p class="metric-status">Hay disponibles para reserva</p>
+      </div>
+
+      <div class="metric-card accent-users">
+        <div class="card-content">
+          <div class="metric-info">
+            <span class="metric-label">Usuarios</span>
+            <span class="metric-value">{{ totalUsuarios | number:'1.0-0' }}</span>
+          </div>
+          <div class="metric-icon">
+            <span class="icon-placeholder">👥</span>
+          </div>
+        </div>
+        <p class="metric-status">Actualmente registrados</p>
+      </div>
+
+      <div class="metric-card accent-lodging">
+        <div class="card-content">
+          <div class="metric-info">
+            <span class="metric-label">Alojamientos</span>
+            <span class="metric-value">{{ totalAlojamientos | number:'1.0-0' }}</span>
+          </div>
+          <div class="metric-icon">
+            <span class="icon-placeholder">🏨</span>
+          </div>
+        </div>
+        <p class="metric-status">Disponibles en la plataforma</p>
+      </div>
+
+    </section>
+
+    <section class="quick-actions-section">
+      <h2>Acciones de Gestión</h2>
+      <div class="actions-flex">
+        
+        <button class="action-button btn-primary" (click)="irAGestionarActividades()">
+          <span class="btn-icon">➕</span>
+          <span class="btn-text">Gestionar Actividades</span>
+        </button>
+        
+        <button class="action-button btn-outline" (click)="irAAdministrarUsuarios()">
+          <span class="btn-icon">🛠️</span>
+          <span class="btn-text">Administrar Usuarios</span>
+        </button>
+        
+        <button class="action-button btn-outline" (click)="irAServiciosPrimarios()">
+          <span class="btn-icon">💡</span>
+          <span class="btn-text">Servicios Primarios</span>
+        </button>
+        
+        <button class="action-button btn-primary-dark" (click)="irAGestionarAlojamientos()">
+          <span class="btn-icon">🏢</span>
+          <span class="btn-text">Gestionar Alojamientos</span>
+        </button>
+        
+
+      </div>
+    </section>
+
+  </div>
+</div>

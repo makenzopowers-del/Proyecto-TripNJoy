@@ -1,0 +1,61 @@
+<div class="admin-page-layout">
+  <div class="main-content">
+    
+    <div class="page-header">
+      <div class="title-section">
+        <a routerLink="/admin" class="btn-back">← Volver al Panel</a>
+        <h1>Servicios Primarios</h1>
+        <p class="subtitle">Gestiona los extras y servicios esenciales de los viajes.</p>
+      </div>
+      <button class="btn-primary">+ Nuevo Servicio</button>
+    </div>
+
+    <div class="table-wrapper card-dark">
+      
+      <div class="table-toolbar">
+        <div class="search-box">
+          <span class="icon">🔍</span>
+          <input type="text" placeholder="Buscar por servicio o categoría...">
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Servicio</th>
+              <th>Categoría</th>
+              <th>Precio Base</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (item of servicios; track item.id) {
+              <tr>
+                <td>#{{ item.id }}</td>
+                <td class="fw-bold">{{ item.nombre }}</td>
+                <td><span class="cat-tag">{{ item.categoria }}</span></td>
+                <td>{{ item.precio }}</td>
+                <td>
+                  <span class="status-badge" [class]="'status-' + item.estado.toLowerCase()">
+                    {{ item.estado }}
+                  </span>
+                </td>
+                <td class="actions-cell">
+                  <button class="btn-icon" title="Editar">✏️</button>
+                  <button class="btn-icon delete" title="Eliminar">🗑️</button>
+                </td>
+              </tr>
+            } @empty {
+              <tr>
+                <td colspan="6" class="empty-text">No se encontraron servicios.</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

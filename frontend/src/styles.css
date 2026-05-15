@@ -1,0 +1,160 @@
+/* 1. Importamos Bricolage (Títulos) y Plus Jakarta Sans (UI) desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+/* Importamos estilos del cursor */
+@import './cursor.css'; 
+
+/* 2. Reseteo y fuente base para toda la web (Plus Jakarta Sans) */
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Plus Jakarta Sans', sans-serif; /* Limpia, moderna y tecnológica */
+  background-color: #0f172a; /* Fondo oscuro del admin dashboard */
+  color: #f8fafc;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* 3. Textos normales, inputs y etiquetas con la fuente de UI */
+input, textarea, select, label, p, span, a {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1rem; 
+}
+
+/* 4. TÍTULOS: Aquí entra Bricolage Grotesque para dar el toque "Trip N' Joy" */
+h1, h2, h3, h4, h5, h6, .auth-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 700; /* Extra negrita para que tenga fuerza */
+  letter-spacing: -0.5px; /* Las fuentes modernas de títulos se ven mejor un poco apretadas */
+  text-transform: none; /* Quitamos las versalitas para no sobrecargar esta fuente que ya tiene mucho carácter */
+}
+
+/* 5. Botones con mucha fuerza y claridad */
+button, .btn-primary, .btn-social, .join-btn {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase; /* Queda genial en botones con esta fuente */
+}
+
+/* 1. Cursor normal para toda la página (Ejemplo: la flecha Cyan) */
+body {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M4 2 L4 20 L9.5 14.5 L16 14.5 Z' fill='%230f172a' stroke='%2306b6d4' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E") 4 2, auto;
+}
+
+/* 2. Cursor naranja brillante al pasar sobre cualquier botón o enlace */
+button, a {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M4 2 L4 20 L9.5 14.5 L16 14.5 Z' fill='%23eab308' stroke='%23ffffff' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E") 4 2, pointer !important;
+}
+
+/* 6. Estilos generales para toda la web */
+body {
+  background-color: #0f172a;
+  margin: 0;
+}
+
+/* --- ESTILOS PARA PÁGINAS LEGALES --- */
+
+.legal-container {
+  max-width: 900px;
+  margin: 120px auto 80px; /* 120px arriba para que no lo tape el header fixed */
+  padding: 40px;
+  background-color: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Sombra suave para dar relieve */
+  border-radius: 15px;
+  line-height: 1.8;
+  color: #444;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Título principal de la página */
+.legal-container h1 {
+  font-size: 2.2rem;
+  color: #000000;
+  margin-bottom: 10px;
+  font-weight: 800;
+  text-align: left;
+}
+
+/* Fecha de actualización o subtítulos pequeños */
+.legal-container p:first-of-type {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+}
+
+/* Secciones (Contenedores de h2 + p) */
+.legal-container section {
+  margin-bottom: 35px;
+}
+
+/* Títulos de sección */
+.legal-container h2 {
+  font-size: 1.4rem;
+  color: #2c3e50;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* El toque azul de Trip N' Joy en los títulos */
+.legal-container h2::before {
+  content: "";
+  width: 4px;
+  height: 24px;
+  background-color: #3498db; /* Azul corporativo */
+  border-radius: 2px;
+  display: inline-block;
+}
+
+/* Estilo para párrafos de texto */
+.legal-container p {
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+/* Listas (especialmente para Devoluciones) */
+.legal-container ul {
+  list-style: none;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.legal-container ul li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 10px;
+}
+
+/* Checkmarks o puntos personalizados para las listas */
+.legal-container ul li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #3498db;
+  font-weight: bold;
+}
+
+/* Resaltados (negritas) */
+.legal-container strong {
+  color: #000;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .legal-container {
+    margin-top: 100px;
+    padding: 25px;
+    width: 90%;
+  }
+
+  .legal-container h1 {
+    font-size: 1.8rem;
+  }
+}

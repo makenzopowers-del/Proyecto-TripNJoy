@@ -1,0 +1,49 @@
+@if (pais) {
+  <div class="pais-container" [style.backgroundImage]="'url(' + pais.imagenFondo + ')'">
+    <div class="content-overlay">
+
+      <button class="info-btn">
+        <span class="info-icon">i</span>
+      </button>
+
+      <div class="panel-titulo">
+        <h1 class="titulo-pais">{{ pais.nombre }}</h1>
+      </div>
+
+      @if (pais.eslogan) {
+        <p class="eslogan-pais">"{{ pais.eslogan }}"</p>
+      }
+
+      @if (pais.tags) {
+        <div class="tags-container">
+          @for (tag of pais.tags; track tag) {
+            <span class="tag-pill">{{ tag }}</span>
+          }
+        </div>
+      }
+
+      @if (pais.datosGenerales) {
+        <div class="datos-rapidos-bar">
+          <span class="dato-item">🗓️ Mejor época: <strong>{{ pais.datosGenerales.epoca }}</strong></span>
+          <span class="dato-item">🗣️ Idioma: <strong>{{ pais.datosGenerales.idioma }}</strong></span>
+          <span class="dato-item">💶 Moneda: <strong>{{ pais.datosGenerales.moneda }}</strong></span>
+        </div>
+      }
+
+      <div class="carrusel-ciudades">
+        @for (ciudad of pais.ciudades; track ciudad.nombre) {
+          <div class="ciudad-card" [style.backgroundImage]="'url(' + ciudad.imagenFondo + ')'" (click)="irACiudad(ciudad.nombre)">
+            <div class="ciudad-overlay">
+              <h2 class="titulo-ciudad">{{ ciudad.nombre }}</h2>
+            </div>
+          </div>
+        }
+      </div>
+
+      <button class="volver-btn" (click)="volver()">
+        Volver
+      </button>
+
+    </div>
+  </div>
+}

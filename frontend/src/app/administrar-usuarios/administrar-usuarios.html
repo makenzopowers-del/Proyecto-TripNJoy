@@ -1,0 +1,56 @@
+<div class="admin-page-layout">
+  <div class="main-content">
+    
+    <div class="page-header">
+      <div class="title-section">
+        <a routerLink="/admin" class="btn-back">← Volver al Panel</a>
+        <h1>Administrar Usuarios</h1>
+        <p class="subtitle">Gestiona los permisos y perfiles de los usuarios registrados.</p>
+      </div>
+      <button class="btn-primary">+ Nuevo Usuario</button>
+    </div>
+
+    <div class="table-wrapper card-dark">
+      <div class="table-toolbar">
+        <div class="search-box">
+          <span class="icon">🔍</span>
+          <input type="text" placeholder="Buscar por nombre o email...">
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Usuario</th>
+              <th>Email</th>
+              <th>Rol</th>
+              <th>Fecha Registro</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (user of usuarios; track user.id) {
+              <tr>
+                <td>#{{ user.id }}</td>
+                <td class="fw-bold">{{ user.nombre }}</td>
+                <td>{{ user.email }}</td>
+                <td>
+                  <span class="role-badge" [class.role-admin]="user.rol === 'Admin'">
+                    {{ user.rol }}
+                  </span>
+                </td>
+                <td>{{ user.registro }}</td>
+                <td class="actions-cell">
+                  <button class="btn-icon" title="Editar">✏️</button>
+                  <button class="btn-icon delete" title="Eliminar">🗑️</button>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

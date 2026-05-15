@@ -1,0 +1,192 @@
+.perfil-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 1rem;
+  min-height: 70vh;
+  background-color: #0f172a; /* Fondo ultra oscuro */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.profile-card {
+  background: #1e293b; /* Azul oscuro para la tarjeta */
+  color: #cbd5e1; /* Texto gris claro */
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  border: 1px solid #334155; /* Borde sutil para definir la tarjeta */
+}
+
+.profile-card:hover {
+  transform: translateY(-5px);
+}
+
+/* El banner de fondo superior */
+.profile-header {
+  background: linear-gradient(135deg, #1e40af 0%, #0d9488 100%); /* Gradiente azul a turquesa */
+  height: 140px;
+  position: relative;
+}
+
+/* El círculo para la foto de perfil */
+.avatar-container {
+  width: 100px;
+  height: 100px;
+  background: #1e293b; /* Azul oscuro para el fondo del avatar */
+  border-radius: 50%;
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.avatar-text {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #38bdf8; /* Azul claro para las iniciales */
+}
+
+.profile-body {
+  padding: 65px 2rem 2.5rem;
+}
+
+.user-name {
+  margin: 0;
+  font-size: 1.8rem;
+  color: #f8fafc; /* Blanco para el nombre */
+  font-weight: 700;
+}
+
+.user-email {
+  color: #94a3b8; /* Gris azulado para el correo */
+  font-size: 1rem;
+  margin-top: 6px;
+  margin-bottom: 15px;
+}
+
+.badge {
+  display: inline-block;
+  background: #422006; /* Fondo naranja oscuro para la etiqueta */
+  color: #fbbf24; /* Texto amarillo para la etiqueta */
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.info-section {
+  background: #334155; /* Azul grisáceo para la sección de información */
+  color: #cbd5e1; /* Texto gris claro */
+  border-radius: 12px;
+  padding: 1.2rem;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.info-item .label {
+  display: block;
+  font-size: 0.85rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-item .value {
+  display: block;
+  font-size: 1.1rem;
+  color: #334155;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+/* Botones modernos */
+.actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.actions button {
+  flex: 1;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background: #0f172a;
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: #334155;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #0f172a;
+  border: 2px solid #e2e8f0;
+}
+
+.btn-secondary:hover {
+  border-color: #0f172a;
+  background: #f8fafc;
+}
+
+/* =========================================
+   📱 RESPONSIVE - PERFIL CLIENTE
+   ========================================= */
+@media (max-width: 480px) {
+  .perfil-container {
+    padding: 2rem 1rem;
+  }
+
+  .profile-card {
+    border-radius: 16px;
+  }
+
+  /* Reducimos un poco el tamaño del avatar */
+  .avatar-container {
+    width: 80px;
+    height: 80px;
+    bottom: -40px;
+  }
+
+  .avatar-text {
+    font-size: 2rem;
+  }
+
+  /* Ajustamos los espacios interiores */
+  .profile-body {
+    padding: 55px 1.5rem 1.5rem;
+  }
+
+  .user-name {
+    font-size: 1.5rem;
+  }
+
+  /* Apilamos los botones uno encima del otro para que sean más fáciles de tocar */
+  .actions {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .actions button {
+    width: 100%;
+  }
+}

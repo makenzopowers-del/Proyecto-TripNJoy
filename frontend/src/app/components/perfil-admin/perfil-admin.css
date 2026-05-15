@@ -1,0 +1,250 @@
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #020617; /* Fondo azul muy oscuro para toda la página */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Sidebar rediseñado */
+.admin-sidebar {
+  width: 280px;
+  background: #0f172a; /* Azul casi negro */
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.brand {
+  padding: 2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  border-bottom: 1px solid #1e293b;
+}
+
+.brand span {
+  color: #3b82f6; /* Toque azul en el logo */
+}
+
+.admin-sidebar nav {
+  padding: 2rem 1rem;
+}
+
+.admin-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.admin-sidebar li {
+  padding: 15px 20px;
+  border-radius: 12px;
+  color: #cbd5e1;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.admin-sidebar li:hover {
+  background: #1e293b;
+  color: white;
+}
+
+.admin-sidebar li.active {
+  background: #3b82f6;
+  color: white;
+}
+
+/* Área de contenido */
+.admin-main {
+  flex: 1;
+  padding: 2.5rem 3rem;
+  overflow-y: auto;
+}
+
+/* Barra Superior */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  background: white;
+  padding: 1.5rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.topbar-title h1 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 1.8rem;
+}
+
+.topbar-title p {
+  margin: 5px 0 0 0;
+  color: #64748b;
+}
+
+/* Identificación del Admin arriba a la derecha */
+.admin-user-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.admin-name {
+  font-weight: 600;
+  color: #334155;
+}
+
+.admin-avatar {
+  width: 45px;
+  height: 45px;
+  background: #3b82f6;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Tarjetas de Estadísticas */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.stat-card {
+  background: white;
+  padding: 1.8rem;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  border-color: #3b82f6; /* Brillo azul al pasar el ratón */
+  background: #1e293b; /* Fondo azul oscuro al pasar el ratón */
+  color: white; /* Texto blanco al pasar el ratón */
+}
+
+.stat-icon {
+  width: 60px;
+  height: 60px;
+  background: #1e293b; /* Azul oscuro para el fondo del icono */
+  color: #3b82f6; /* Azul brillante para el icono */
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+}
+
+.stat-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-label {
+  color: #64748b;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.stat-value {
+  color: #0f172a;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-top: 5px;
+}
+
+/* Scrollbar personalizada para que no desentone con el modo oscuro */
+.admin-main::-webkit-scrollbar {
+  width: 8px;
+}
+.admin-main::-webkit-scrollbar-track {
+  background: #020617;
+}
+.admin-main::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 10px;
+}
+
+/* =========================================
+   📱 RESPONSIVE - PERFIL ADMINISTRADOR
+   ========================================= */
+@media (max-width: 768px) {
+  /* Pasamos de fila a columna para que el sidebar quede arriba */
+  .admin-layout {
+    flex-direction: column;
+  }
+
+  /* El sidebar ahora ocupa el 100% del ancho */
+  .admin-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #1e293b;
+  }
+
+  .brand {
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .admin-sidebar nav {
+    padding: 1rem;
+  }
+
+  /* Convertimos la lista vertical en un menú horizontal deslizable */
+  .admin-sidebar ul {
+    flex-direction: row;
+    overflow-x: auto; /* Permite hacer scroll horizontal */
+    padding-bottom: 5px;
+  }
+
+  /* Ocultamos la barra de scroll para que se vea más limpio en móvil */
+  .admin-sidebar ul::-webkit-scrollbar {
+    display: none;
+  }
+
+  .admin-sidebar li {
+    white-space: nowrap; /* Evita que el texto se rompa en dos líneas */
+  }
+
+  /* Reducimos el padding general del contenido */
+  .admin-main {
+    padding: 1.5rem;
+  }
+
+  /* Reorganizamos la barra superior */
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  /* Movemos la info del admin a la derecha */
+  .admin-user-info {
+    width: 100%;
+    justify-content: flex-end;
+    border-top: 1px solid #1e293b;
+    padding-top: 1rem;
+  }
+
+  /* Hacemos que las tarjetas ocupen todo el ancho si la pantalla es muy pequeña */
+  .stats-grid {
+    grid-template-columns: 1fr; 
+  }
+}

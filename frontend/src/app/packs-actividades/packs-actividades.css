@@ -1,0 +1,218 @@
+/* Contenedor principal */
+.packs-container {
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Espacio superior para que no tape el menú (Navbar) */
+.overlay {
+    min-height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 140px 20px 60px 20px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titulo-seccion {
+    color: white;
+    font-size: 2.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.6);
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+/* Contenedor de la lista */
+.lista-items {
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    margin-bottom: 60px;
+}
+
+/* FILA EN ZIGZAG */
+.item-row {
+    display: flex;
+    align-items: stretch;
+    gap: 40px;
+    width: 100%;
+}
+
+.item-row.reverse {
+    flex-direction: row-reverse;
+}
+
+/* COLLAGE DE IMÁGENES */
+.item-imagenes {
+    display: flex;
+    gap: 12px;
+    width: 50%;
+    height: 280px;
+}
+
+.img-large {
+    flex: 1.6;
+    border-radius: 25px;
+    background-size: cover;
+    background-position: center;
+    border: 2px solid rgba(255,255,255,0.1);
+}
+
+.img-small-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.img-small {
+    flex: 1;
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center;
+    border: 2px solid rgba(255,255,255,0.1);
+}
+
+/* TARJETA DE INFORMACIÓN (EFECTO CRISTAL) */
+.info-card {
+    width: 50%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 35px;
+    padding: 35px;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+}
+
+.item-titulo {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin: 0 0 15px 0;
+    color: #38c8c8; /* Color cian característico */
+    text-transform: uppercase;
+}
+
+.item-desc {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #e5e7eb;
+    margin-bottom: 25px;
+}
+
+/* FOOTER DE LA TARJETA: PRECIO Y BOTÓN */
+.item-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.item-precio {
+    display: flex;
+    flex-direction: column;
+}
+
+.desde {
+    font-size: 0.8rem;
+    color: #9ca3af;
+    text-transform: uppercase;
+}
+
+.precio-linea {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+}
+
+.precio-num {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: white;
+}
+
+.persona {
+    font-size: 0.9rem;
+    color: #9ca3af;
+}
+
+.btn-cyan {
+    background: #38c8c8;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: 800;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(56, 200, 200, 0.3);
+}
+
+.btn-cyan:hover {
+    transform: translateY(-3px);
+    background: #2fb1b1;
+    box-shadow: 0 6px 20px rgba(56, 200, 200, 0.5);
+}
+
+/* BOTONES INFERIORES DE LA PÁGINA */
+.footer-botones {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.btn-volver {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 2px solid white;
+    border-radius: 30px;
+    padding: 12px 35px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-volver:hover {
+    background: white;
+    color: black;
+}
+
+.btn-green {
+    background: #a8d13b;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 35px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-green:hover {
+    background: #95ba33;
+    transform: scale(1.05);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .item-row, .item-row.reverse {
+        flex-direction: column;
+    }
+    .item-imagenes, .info-card {
+        width: 100%;
+    }
+    .item-imagenes {
+        height: 220px;
+    }
+}

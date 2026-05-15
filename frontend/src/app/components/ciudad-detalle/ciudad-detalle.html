@@ -1,0 +1,44 @@
+<div class="ciudad-bg" *ngIf="ciudad && pais" [style.backgroundImage]="'url(' + pais.imagenFondo + ')'">
+  <div class="main-content">
+    
+    <div class="img-container">
+      <img [src]="ciudad.imagenDetalle" [alt]="ciudad.nombre">
+    </div>
+
+    <div class="info-panel">
+      <h1>{{ ciudad.nombre }}</h1>
+      
+      <div class="quick-facts">
+        <div class="fact" *ngIf="ciudad.clima">
+          <span class="icon">🌡️</span> <strong>Clima:</strong> {{ ciudad.clima }}
+        </div>
+        <div class="fact" *ngIf="ciudad.idioma">
+          <span class="icon">🗣️</span> <strong>Idioma:</strong> {{ ciudad.idioma }}
+        </div>
+        <div class="fact" *ngIf="ciudad.moneda">
+          <span class="icon">💶</span> <strong>Moneda:</strong> {{ ciudad.moneda }}
+        </div>
+      </div>
+
+      <p class="descripcion">{{ ciudad.descripcion }}</p>
+
+      <div class="extra-info" *ngIf="ciudad.puntosFuertes && ciudad.puntosFuertes.length > 0">
+        <h3>✨ ¿Por qué visitar {{ ciudad.nombre }}?</h3>
+        <ul>
+          @for (punto of ciudad.puntosFuertes; track punto) {
+            <li>✔️ {{ punto }}</li>
+          }
+        </ul>
+      </div>
+
+      <div class="botones-grid">
+        <button class="btn-cyan" (click)="verPacks('actividades')">Packs de<br>actividades</button>
+        <button class="btn-cyan" (click)="verPacks('alojamientos')">Packs de<br>alojamientos</button>
+        <button class="btn-green" (click)="verPacks('conjuntos')">Ver Packs<br>conjuntos</button>
+      </div>
+    </div>
+
+  </div>
+
+  <button class="btn-volver" (click)="volver()">Volver</button>
+</div>

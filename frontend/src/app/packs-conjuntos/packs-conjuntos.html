@@ -1,0 +1,53 @@
+@if (ciudad) {
+  <div class="packs-container" [style.backgroundImage]="'url(' + ciudad.imagenFondo + ')'">
+    <div class="overlay">
+
+      <h1 class="titulo-seccion">Packs Conjuntos en {{ ciudad.nombre }}</h1>
+      <p class="subtitulo-seccion">Alojamiento + Actividades al mejor precio</p>
+
+      <div class="lista-items">
+        
+        @for (conjunto of ciudad.packsConjuntos; track conjunto.nombre; let i = $index) {
+          <div class="item-row" [class.reverse]="i % 2 !== 0">
+            
+            <div class="item-imagenes">
+              <div class="img-large" [style.backgroundImage]="'url(' + conjunto.imagenes[0] + ')'"></div>
+              <div class="img-small-col">
+                <div class="img-small" [style.backgroundImage]="'url(' + conjunto.imagenes[1] + ')'"></div>
+                <div class="img-small" [style.backgroundImage]="'url(' + conjunto.imagenes[2] + ')'"></div>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div>
+                <h3 class="item-titulo">{{ conjunto.nombre }}</h3>
+                
+                <div class="item-desc">
+                  <p style="margin-bottom: 8px;"><strong>🏨 Alojamiento:</strong> {{ conjunto.detallesAlojamiento.join(' | ') }}</p>
+                  <p><strong>🗺️ Actividades:</strong> {{ conjunto.detallesActividades.join(' | ') }}</p>
+                </div>
+              </div>
+              
+              <div class="item-footer">
+                <div class="item-precio">
+                  <span class="desde">Precio Total</span>
+                  <div class="precio-linea">
+                    <span class="precio-num">{{ conjunto.precioDesde }}€</span> 
+                    <span class="persona">/ persona</span>
+                  </div>
+                </div>
+                <button class="btn-purple" (click)="irAReserva(conjunto)">Reservar Pack</button>
+              </div>
+            </div>
+
+          </div>
+        }
+      </div>
+
+      <div class="footer-botones">
+        <button class="btn-volver" (click)="volver()">Volver atrás</button>
+      </div>
+
+    </div>
+  </div>
+}

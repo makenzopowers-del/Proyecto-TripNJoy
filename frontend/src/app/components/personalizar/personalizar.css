@@ -1,0 +1,175 @@
+.personalizar-container {
+  min-height: 100vh;
+  background: 
+    url('/fondo-personalizar.gif') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+  color: white;
+  padding: 120px 20px 60px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header-reserva {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.header-reserva h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.header-reserva p {
+  color: #94a3b8;
+  font-size: 1.2rem;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Tarjetas */
+.card-producto, .card-pago {
+  background: #1e293b;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.badge {
+  background: #06b6d4;
+  color: #0f172a;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+.card-producto h2 {
+  margin: 15px 0 5px;
+  font-size: 1.8rem;
+}
+
+.precio-unitario {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #10b981; /* Verde */
+  margin-bottom: 20px;
+}
+
+.precio-unitario span {
+  font-size: 0.9rem;
+  color: #94a3b8;
+}
+
+.detalles-box ul {
+  list-style: none;
+  padding: 0;
+  color: #cbd5e1;
+  line-height: 1.8;
+}
+
+/* Formulario */
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 8px;
+  color: #e2e8f0;
+  font-weight: 500;
+}
+
+.input-control {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background: #0f172a;
+  color: white;
+  font-size: 1rem;
+}
+
+.input-control:focus {
+  outline: none;
+  border-color: #06b6d4;
+}
+
+/* Ticket */
+.ticket-resumen {
+  background: #0f172a;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 30px 0;
+  border-left: 4px solid #06b6d4;
+}
+
+.ticket-fila, .ticket-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ticket-total {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px dashed #334155;
+  font-weight: bold;
+}
+
+.precio-destacado {
+  font-size: 1.8rem;
+  color: #10b981;
+}
+
+/* Botones */
+.botones-accion {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.btn-pagar {
+  background: #10b981;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-pagar:hover {
+  background: #059669;
+  transform: translateY(-2px);
+}
+
+.btn-cancelar {
+  background: transparent;
+  color: #94a3b8;
+  border: 1px solid #334155;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-cancelar:hover {
+  background: #334155;
+  color: white;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+}

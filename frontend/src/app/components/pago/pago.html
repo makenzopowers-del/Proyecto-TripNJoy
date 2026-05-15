@@ -1,0 +1,87 @@
+@if (reserva) {
+  <div class="pago-container">
+    <div class="checkout-layout">
+      
+      <div class="formulario-seccion">
+        <button class="btn-atras" (click)="volver()">← Volver a personalización</button>
+        
+        <h2>Información de Pago</h2>
+        
+        <div class="form-card">
+          <div class="grupo">
+            <label>Nombre del Titular</label>
+            <input type="text" [(ngModel)]="nombreTitular" placeholder="Juan Pérez">
+          </div>
+
+          <div class="grupo">
+            <label>Correo Electrónico</label>
+            <input type="email" [(ngModel)]="email" placeholder="juan@ejemplo.com">
+          </div>
+
+          <div class="grupo">
+            <label>Número de Tarjeta</label>
+            <div class="input-icono">
+              <input type="text" [(ngModel)]="numeroTarjeta" placeholder="0000 0000 0000 0000">
+              <span class="icon">💳</span>
+            </div>
+          </div>
+
+          <div class="fila-doble">
+            <div class="grupo">
+              <label>Expiración</label>
+              <input type="text" [(ngModel)]="expiracion" placeholder="MM/YY">
+            </div>
+            <div class="grupo">
+              <label>CVV</label>
+              <input type="password" [(ngModel)]="cvv" placeholder="123">
+            </div>
+          </div>
+        </div>
+
+        <button class="btn-confirmar" (click)="finalizarCompra()">
+          Pagar y Confirmar Reserva
+        </button>
+        <p class="seguridad">🔒 Pago procesado de forma segura con encriptación SSL</p>
+      </div>
+
+      <div class="resumen-seccion">
+        <div class="ticket">
+          <h3>Resumen del Viaje</h3>
+          <hr>
+          <div class="info-viaje">
+            <p class="destino">{{ reserva.ciudad }}, {{ reserva.pais }}</p>
+            <p class="producto"><strong>{{ reserva.nombre }}</strong></p>
+            <p class="tipo-tag">{{ reserva.tipo }}</p>
+          </div>
+
+          <div class="desglose">
+            <div class="linea">
+              <span>Precio base</span>
+              <span>{{ reserva.precioTotal }}€</span>
+            </div>
+            <div class="linea">
+              <span>Gestión de reserva</span>
+              <span>12.50€</span>
+            </div>
+            <div class="linea total">
+              <span>TOTAL</span>
+              <span>{{ reserva.precio }}€</span>
+            </div>
+          </div>
+
+          <div class="politica">
+            <p>✓ Cancelación gratuita hasta 48h antes.</p>
+            <p>✓ Confirmación inmediata por email.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+} @else {
+  <div class="pago-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; min-height: 60vh;">
+    <h2 style="font-size: 2rem; color: white;">¡Ups! Hemos perdido los datos de tu reserva 😢</h2>
+    <p style="color: #94a3b8; margin-bottom: 20px;">Esto suele pasar si recargas la página. Por favor, vuelve a elegir tu viaje.</p>
+    <button class="btn-atras" (click)="volver()" style="background: #10b981; color: white; padding: 10px 20px; border-radius: 8px;">Volver atrás</button>
+  </div>
+}

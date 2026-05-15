@@ -1,0 +1,29 @@
+<div class="modal-overlay" (click)="onCerrar()">
+  <div class="modal-container" (click)="$event.stopPropagation()">
+    
+    <div class="modal-header">
+      <span class="close-btn" (click)="onCerrar()">x</span>
+      <h2>¡COMIENZA A PLANEAR TU VIAJE!</h2>
+    </div>
+
+    <div class="info-box">
+      <p>Para poder empezar a planificar tu próxima aventura, deberás escoger el país al que quieres visitar</p>
+    </div>
+
+    <div class="country-selector">
+      <div class="section-title-line"></div>
+      <h3 class="section-title">SELECCIONA TU PAÍS</h3>
+      <div class="section-title-line"></div>
+    </div>
+
+    <div class="carousel-container">
+      @for (pais of paises; track pais.id) {
+        <div class="flag-img" (click)="seleccionarPais(pais.id)">
+          <img [src]="pais.flagUrl" [alt]="'Bandera de ' + pais.nombre">
+        </div>
+      }
+    </div>
+  
+
+  </div>
+</div>

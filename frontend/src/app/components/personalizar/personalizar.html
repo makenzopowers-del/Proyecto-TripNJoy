@@ -1,0 +1,70 @@
+@if (reserva) {
+  <div class="personalizar-container">
+    
+    <div class="header-reserva">
+      <h1>Personaliza tu Aventura</h1>
+      <p>Destino: <strong>{{ reserva.ciudad }}, {{ reserva.pais }}</strong></p>
+    </div>
+
+    <div class="content-grid">
+      
+      <div class="card-producto">
+        <span class="badge">{{ reserva.tipo | uppercase }}</span>
+        <h2>{{ reserva.nombre }}</h2>
+        <p class="precio-unitario">{{ reserva.precio }}€ <span>/ persona</span></p>
+
+        @if (reserva.detalles && reserva.detalles.length > 0) {
+          <div class="detalles-box">
+            <h3>¿Qué incluye?</h3>
+            <ul>
+              @for (detalle of reserva.detalles; track $index) {
+                <li>✔️ {{ detalle }}</li>
+              }
+            </ul>
+          </div>
+        }
+      </div>
+
+      <div class="card-pago">
+        <h3>Detalles de la Reserva</h3>
+        
+        <div class="form-group">
+          <label>¿Cuántas personas viajan?</label>
+          <input type="number" min="1" [(ngModel)]="personas" class="input-control">
+        </div>
+
+        <div class="form-group">
+          <label>¿Cuándo te gustaría ir?</label>
+          <input type="date" [(ngModel)]="fechaViaje" class="input-control">
+        </div>
+
+        <div class="ticket-resumen">
+          <div class="ticket-fila">
+            <span>Subtotal ({{ personas }} personas):</span>
+            <span>{{ subtotal }}€</span> 
+          </div>
+          
+          <div class="ticket-fila" style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; margin-bottom: 10px;">
+            <span>Gestión de reserva:</span>
+            <span>{{ tarifaGestion }}€</span>
+          </div>
+
+          <div class="ticket-total">
+            <span>TOTAL A PAGAR:</span>
+            <span class="precio-destacado">{{ precioTotal }}€</span>
+          </div>
+        </div>
+
+        <div class="botones-accion">
+          <button class="btn-pagar" (click)="procederAlPago()">Proceder al Pago 💳</button>
+          <button class="btn-cancelar" (click)="volver()">Volver atrás</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+} @else {
+  <div class="personalizar-container">
+    <p>Cargando datos de tu viaje...</p>
+  </div>
+}

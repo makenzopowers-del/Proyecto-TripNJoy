@@ -1,0 +1,5 @@
+@if (auth.esAdministrador()) {
+    <app-perfil-admin></app-perfil-admin>
+} @else {
+    <app-perfil-cliente></app-perfil-cliente>
+}

@@ -1,0 +1,52 @@
+<div class="admin-layout">
+  <aside class="admin-sidebar">
+    <div class="brand">Trip N' Joy <span>Pro</span></div>
+    <nav>
+      <ul>
+        <li class="active">📊 Panel Principal</li>
+        <li>👥 Gestión de Usuarios</li>
+        <li>🗺️ Destinos</li>
+        <li>⚙️ Ajustes</li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="admin-main" *ngIf="admin">
+    <header class="topbar">
+      <div class="topbar-title">
+        <h1>Dashboard</h1>
+        <p>Bienvenido de nuevo, revisa las métricas de hoy.</p>
+      </div>
+      <div class="admin-user-info">
+        <span class="admin-name">{{ admin.nombre }}</span>
+        <div class="admin-avatar">{{ admin.nombre.charAt(0) | uppercase }}</div>
+      </div>
+    </header>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon">👥</div>
+        <div class="stat-info">
+          <span class="stat-label">Usuarios Totales</span>
+          <span class="stat-value">1,248</span>
+        </div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon">✈️</div>
+        <div class="stat-info">
+          <span class="stat-label">Viajes Activos</span>
+          <span class="stat-value">42</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">📩</div>
+        <div class="stat-info">
+          <span class="stat-label">Mensajes Nuevos</span>
+          <span class="stat-value">15</span>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

@@ -1,0 +1,58 @@
+<link rel="stylesheet" href="./header.css">
+<header class="main-header" [class.admin-mode]="isAdmin()">
+  
+  <div class="logo-container">
+    <a routerLink="/">
+      <img src="logo-bola.png" alt="Logo" class="logo-img">
+    </a>
+    @if (isAdmin()) {
+      <span class="admin-badge">ADMIN</span>
+    }
+  </div>
+
+  <nav class="nav-menu">
+    <ul>
+      @if (isAdmin()) {
+        <li><a routerLink="/admin" style="text-decoration: none; color: inherit; cursor: pointer;">DASHBOARD</a></li>
+        <li><a routerLink="/" style="text-decoration: none; color: inherit; cursor: pointer;">VER WEB PÚBLICA</a></li>
+      } @else {
+        <li>
+          <span class="arrow">v</span> 
+          <a routerLink="/que-ofrecemos" style="text-decoration: none; color: inherit; cursor: pointer;">¿QUÉ OFRECEMOS?</a>
+        </li>
+        <li class="nav-menu-item">
+          <span class="arrow">v</span> 
+          <a routerLink="/valoraciones" style="text-decoration: none; color: inherit; cursor: pointer;">VALORACIONES</a>
+        </li>
+      }
+    </ul>
+  </nav>
+
+  <div class="user-actions">
+    @if (auth.isLoggedIn()) {
+      <div class="perfil-dropdown">
+        
+        <div class="btn-perfil" [routerLink]="isAdmin() ? '/admin' : '/perfil'" style="cursor: pointer;">
+          {{ isAdmin() ? 'ADMINISTRADOR' : 'MI PERFIL' }}
+        </div>
+        
+        <div class="dropdown-menu">
+          
+          @if (isAdmin()) {
+            <a routerLink="/perfil" class="menu-item">Editar perfil</a>
+          } @else {
+            <a routerLink="/perfil" class="menu-item">Ver mi perfil</a>
+          }
+          
+          <a (click)="onLogout()" class="menu-item logout-btn">Cerrar sesión</a>
+          
+        </div>
+      </div>
+      
+    } @else {
+      <div class="join-btn" (click)="onBotonUneteClick()" style="cursor: pointer;">
+        ÚNETE
+      </div>
+    }
+  </div>
+</header>

@@ -1,0 +1,220 @@
+/* =========================================================
+   CONTENEDOR PRINCIPAL Y FONDO
+   ========================================================= */
+/* Caja principal que ocupa toda la pantalla y contiene el fondo de imagen */
+.auth-container {
+  min-height: 100vh; /* Ocupa al menos el 100% del alto de la ventana */
+  display: flex;
+  justify-content: center; /* Centra el panel horizontalmente */
+  align-items: center; /* Centra el panel verticalmente */
+  background: url('/fondo-registro.gif') no-repeat center center; /* Tu imagen de fondo */
+  background-size: cover; /* Asegura que la imagen cubra todo el espacio sin deformarse */
+  position: relative; /* Necesario para que la capa negra (::before) se coloque encima */
+  padding: 40px 20px; /* Un poco más de margen arriba y abajo porque este formulario es más alto */
+}
+
+/* Capa semitransparente oscura que va encima de la imagen de fondo para que el formulario destaque */
+.auth-container::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0; /* Se estira por todos los bordes */
+  background: rgba(0, 0, 0, 0.5); /* Fondo negro al 50% de opacidad */
+}
+
+/* =========================================================
+   PANEL DE CRISTAL (TARJETA DE REGISTRO)
+   ========================================================= */
+/* La caja principal donde va el formulario, con el efecto "Glassmorphism" (cristal esmerilado) */
+.glass-panel {
+  position: relative; /* Para que quede por encima de la capa negra del fondo */
+  background: rgba(236, 243, 255, 0.65); /* Azul muy oscuro y casi transparente */
+  backdrop-filter: blur(12px); /* El desenfoque mágico que crea el efecto cristal */
+  -webkit-backdrop-filter: blur(12px); /* Soporte para navegadores Safari (Apple) */
+  border: 1px solid rgba(255, 255, 255, 0.15); /* Bordes sutiles blanquecinos para dar brillo al cristal */
+  border-radius: 20px; /* Bordes de la caja redondeados */
+  padding: 40px; /* Espacio interior entre el borde y el contenido */
+  width: 100%;
+  max-width: 500px; /* Un poco más ancho que el login porque tiene más campos */
+  color: white; /* Texto principal en blanco */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5); /* Sombra exterior para dar sensación de flotar */
+}
+
+/* =========================================================
+   CABECERA (LOGO, TÍTULO Y SUBTÍTULO)
+   ========================================================= */
+.auth-header { 
+  text-align: center; 
+  margin-bottom: 25px; /* Separación con el formulario */
+}
+
+.auth-logo { 
+  max-width: 140px; 
+  margin-bottom: 10px; 
+}
+
+.auth-header h2 { 
+  font-size: 1.8rem; 
+  margin-bottom: 5px; 
+  color: #00597f; /* Azul claro para el título */
+  margin-top: 5px;
+  font-weight: 800;
+}
+
+.auth-header p { 
+  font-size: 0.9rem; 
+  opacity: 0.8; /* Lo hace un poco más gris/transparente para que no quite protagonismo al título */
+}
+
+/* =========================================================
+   FORMULARIO E INPUTS
+   ========================================================= */
+/* Fila para poner Nombre y Apellidos uno al lado del otro */
+.form-row {
+  display: flex;
+  gap: 15px; /* Separación horizontal entre los dos campos */
+}
+
+/* Hace que tanto Nombre como Apellidos se estiren y ocupen exactamente la mitad (50%) */
+.form-row .input-group {
+  flex: 1; 
+}
+
+/* Agrupador de la etiqueta (label) y el campo (input) */
+.input-group { 
+  margin-bottom: 18px; /* Separación entre cada bloque de campos */
+}
+
+/* Etiquetas encima de los campos (Nombre, Correo, Contraseña...) */
+.input-group label { 
+  display: block; 
+  margin-bottom: 6px; 
+  font-size: 0.85rem; 
+  font-weight: 500; 
+}
+
+/* Caja que envuelve al icono y al input */
+.input-wrapper {
+  position: relative; /* Para poder posicionar el icono de forma absoluta dentro */
+  display: flex;
+  align-items: center;
+}
+
+/* Los iconos (usuario, candado, etc.) que van dentro del campo */
+.input-wrapper i {
+  position: absolute; /* Lo coloca flotando a la izquierda */
+  left: 12px;
+  opacity: 0.7;
+  font-style: normal;
+}
+
+/* El campo donde escribe el usuario */
+.input-wrapper input {
+  width: 100%;
+  padding: 10px 10px 10px 40px; /* El 40px de la izquierda es vital para que el texto no pise al icono */
+  background: rgba(255, 255, 255, 0.05); /* Fondo casi transparente */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Borde sutil blanco */
+  border-radius: 8px; /* Bordes ligeramente redondeados */
+  color: white; /* Letra que escribe el usuario en blanco */
+  font-size: 0.95rem;
+  transition: 0.3s; /* Animación suave al hacer foco/clic en el campo */
+}
+
+/* EXCEPCIÓN: Si un input no tiene icono (como apellidos), quitamos el margen extra izquierdo */
+.input-wrapper input:not(:focus):not(:placeholder-shown):valid,
+.input-wrapper input[id="apellidos"] {
+  padding-left: 15px; /* Espaciado normal porque no hay icono molestando */
+}
+
+/* Efecto cuando el usuario hace clic dentro del campo para escribir */
+.input-wrapper input:focus {
+  outline: none; /* Quita el borde azul feo del navegador */
+  border-color: #00b4d8; /* Se ilumina el borde con tu azul principal */
+  background: rgba(255, 255, 255, 0.1); /* Se hace un poco menos transparente */
+}
+
+/* =========================================================
+   CHECKBOX DE TÉRMINOS Y CONDICIONES
+   ========================================================= */
+.checkbox-group {
+  display: flex;
+  align-items: flex-start; /* Alinea la caja y el texto arriba */
+  gap: 10px;
+  margin-bottom: 20px;
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+
+.checkbox-group input[type="checkbox"] {
+  margin-top: 3px;
+  accent-color: #00b4d8; /* Pinta el cuadrito de azul cuando se marca (no funciona en todos los navegadores antiguos, pero es moderno) */
+}
+
+.checkbox-group a { 
+  color: #00597f; 
+  text-decoration: none; 
+}
+
+.checkbox-group a:hover { 
+  text-decoration: underline; 
+}
+
+/* =========================================================
+   BOTÓN PRINCIPAL Y FOOTER
+   ========================================================= */
+/* El gran botón azul de registro */
+.btn-primary {
+  width: 100%;
+  padding: 14px;
+  background: #00597f; /* Azul claro principal */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer; /* Ratón tipo manita */
+  transition: background 0.3s;
+}
+
+/* Efecto al pasar el ratón sobre el botón */
+.btn-primary:hover { 
+  background: #003f5a; /* Un azul un poco más oscuro */
+}
+
+/* Zona final: "¿Ya tienes cuenta? Inicia sesión" */
+.auth-footer { 
+  text-align: center; 
+  margin-top: 20px; 
+  font-size: 0.9rem; 
+}
+
+.auth-footer a { 
+  color: #00597f; 
+  text-decoration: none; 
+  font-weight: bold; 
+}
+
+/* =========================================================
+   ESTILOS PARA VALIDACIONES DEL FORMULARIO
+   ========================================================= */
+.error-msg {
+  color: #ff6b6b;
+  font-size: 0.85rem;
+  margin-top: 5px;
+  display: block;
+  font-weight: 600;
+}
+
+/* Apariencia del botón cuando el formulario es inválido */
+.btn-disabled {
+  background: #00597f80 !important; /* Azul más apagado/transparente */
+  cursor: not-allowed !important;
+  opacity: 0.7;
+}
+
+/* --- Responsive para móviles --- */
+@media (max-width: 900px) {
+  .testimonios-grid {
+    grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+    gap: 80px; /* Aumentar el espacio entre tarjetas */
+  }
+}

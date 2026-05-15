@@ -1,0 +1,61 @@
+<div class="admin-page-layout">
+  <div class="main-content">
+    
+    <div class="page-header">
+      <div class="title-section">
+        <a routerLink="/admin" class="btn-back">← Volver al Panel</a>        
+        <h1>Gestionar Actividades</h1>
+        <p class="subtitle">Administra, edita y crea nuevas actividades de aventura.</p>
+      </div>
+      <button class="btn-primary">+ Nueva Actividad</button>
+    </div>
+
+    <div class="table-wrapper card-dark">
+      
+      <div class="table-toolbar">
+        <div class="search-box">
+          <span class="icon">🔍</span>
+          <input type="text" placeholder="Buscar actividad...">
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Actividad</th>
+              <th>Ubicación</th>
+              <th>Plazas</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (act of actividades; track act.id) {
+              <tr>
+                <td>#{{ act.id }}</td>
+                <td class="fw-bold">{{ act.nombre }}</td>
+                <td>{{ act.ubicacion }}</td>
+                <td>{{ act.plazas }}</td>
+                <td>
+                  <span class="status-badge" [class]="'status-' + act.estado.toLowerCase()">
+                    {{ act.estado }}
+                  </span>
+                </td>
+                <td class="actions-cell">
+                  <button class="btn-icon">✏️</button>
+                  <button class="btn-icon delete">🗑️</button>
+                </td>
+              </tr>
+            } @empty {
+              <tr>
+                <td colspan="6" class="empty-message">No hay actividades disponibles.</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

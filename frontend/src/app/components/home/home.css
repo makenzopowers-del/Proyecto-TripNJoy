@@ -1,0 +1,283 @@
+/* =========================================
+   1. HERO SECTION (Tu cabecera original)
+   ========================================= */
+.hero-section {
+  position: relative;
+  /* Altura total de la pantalla menos lo que ocupa el header (aprox 60px) */
+  min-height: calc(100vh - 60px); 
+  background: url('/fondo-guapo.gif') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.6); /* Oscurece un 60% la foto para que se lea el texto */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  padding: 0 20px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: 300; /* Texto fino */
+  letter-spacing: 2px;
+  line-height: 1.4;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.hero-content h1 span {
+  color: #f0740f; /* El color cobrizo de la palabra PLANES */
+  font-weight: 700; /* Texto grueso */
+}
+
+.subtitle {
+  font-size: 1.3rem;
+  margin-bottom: 40px;
+}
+
+.texto-naranja { 
+  color: #ff7300; /* Tu color naranja */
+  font-size: inherit; 
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: rgba(220, 220, 220, 0.9);
+  border-radius: 30px;
+  padding: 5px 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.search-container input {
+  width: 100%;
+  padding: 15px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  color: #333;
+  text-align: center;
+  font-weight: bold;
+}
+
+.search-container input::placeholder {
+  color: #666;
+  letter-spacing: 1px;
+}
+
+.search-icon {
+  font-style: normal;
+  opacity: 0.6;
+}
+
+.flecha-v {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(2); /* Estira la 'v' para hacerla flecha */
+  color: white;
+  font-size: 1.5rem;
+  z-index: 2;
+  cursor: pointer;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0) scaleX(2); }
+  40% { transform: translateX(-50%) translateY(-10px) scaleX(2); }
+  60% { transform: translateX(-50%) translateY(-5px) scaleX(2); }
+}
+
+/* =========================================
+   2. NUEVAS SECCIONES (Servicios y Reseñas)
+   ========================================= */
+
+/* Contenedores generales */
+.servicios-section {
+  padding: 6rem 2rem;
+  background-color: #020617;
+  color: #f8fafc;
+  text-align: center;
+  /* Separación superior clara: un borde degradado sutil */
+  border-top: 1px solid #1e293b;
+  position: relative;
+}
+
+/* Añadimos una sombra interna para dar profundidad en la transición */
+.servicios-section::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 100px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent);
+  pointer-events: none;
+}
+
+.reviews-section {
+  padding: 6rem 2rem;
+  background-color: #080c1d; /* Un azul un pelín más claro para diferenciar */
+  color: #f8fafc;
+  text-align: center;
+  /* Línea divisoria entre servicios y valoraciones */
+  border-top: 1px solid #1e293b;
+}
+
+/* Cabeceras de sección */
+.section-header h2, .reviews-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.section-header p {
+  color: #94a3b8;
+  font-size: 1.1rem;
+  margin-bottom: 4rem;
+}
+
+/* Línea decorativa naranja para separar visualmente */
+.divider-line {
+  width: 60px;
+  height: 4px;
+  background: #f0740f;
+  margin: 0 auto 3rem;
+  border-radius: 2px;
+}
+
+/* Grid de Tarjetas (Se adaptará automáticamente en móviles) */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+/* Diseño de la Tarjeta de Servicio */
+.service-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border-color: #f0740f; /* Guiño al color naranja de tu logo */
+}
+
+.card-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  background: #0f172a;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.service-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.service-card p {
+  color: #94a3b8;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  flex-grow: 1; /* Empuja el botón hacia abajo para que todos queden alineados */
+}
+
+/* Asegura que el contenido esté por encima del overlay */
+.service-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* IMÁGENES DE FONDO */
+.bg-alojamientos {
+  background-image: url('/public/home/alojamientos.jpg');
+}
+
+.bg-actividades {
+  background-image: url('/public/home/actividades.jpg');
+}
+
+.bg-transporte {
+  background-image: url('/public/home/transporte.jpg');
+}
+
+/* Botón "Ver Detalles" (Incentiva al click) */
+.btn-detalles {
+  background: transparent;
+  color: #f0740f; /* Naranja */
+  border: 2px solid #f0740f;
+  padding: 10px 24px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.btn-detalles:hover {
+  background: #f0740f;
+  color: white;
+}
+
+/* --- SECCIÓN VALORACIONES --- */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  max-width: 900px;
+  margin: 3rem auto 0;
+}
+
+.review-card {
+  background: #1e293b;
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: left;
+  border-left: 5px solid #f0740f;
+}
+
+.stars {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.review-card p {
+  font-style: italic;
+  color: #cbd5e1;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.author {
+  font-weight: 700;
+  color: #f8fafc;
+}

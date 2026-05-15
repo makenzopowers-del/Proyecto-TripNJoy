@@ -1,0 +1,112 @@
+:host {
+  --primary-color: #ffc107; /* Amarillo para Usuarios */
+  --bg-color: #0f172a; 
+  --card-bg: #1e293b; 
+  --text-main: #f8fafc; 
+  --text-muted: #94a3b8; 
+  --border-color: #334155; 
+}
+
+.admin-page-layout {
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  padding: 0 20px 40px 20px; 
+  display: flex;
+  justify-content: center;
+}
+
+.main-content {
+  width: 100%;
+  max-width: 1300px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 130px;
+}
+
+.card-dark {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+/* Tabla Estilo Admin */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table th {
+  background-color: rgba(15, 23, 42, 0.5);
+  color: var(--text-muted);
+  padding: 15px 20px;
+  text-align: left;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+.admin-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Badges de Rol */
+.role-badge {
+  background: rgba(148, 163, 184, 0.1);
+  color: var(--text-muted);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.role-admin {
+  background: rgba(255, 193, 7, 0.15);
+  color: var(--primary-color);
+  border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+/* Botones y Acciones */
+.btn-primary {
+  background-color: var(--primary-color);
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-icon {
+  background: transparent;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn-icon:hover { transform: scale(1.2); }
+.btn-icon.delete:hover { filter: hue-rotate(300deg); }
+
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  padding: 5px 10px;
+  background: rgba(255, 255, 255, 0.05); /* Un fondo sutil */
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+  color: var(--primary-color);
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(-5px); /* Pequeño efecto de movimiento hacia la izquierda */
+}

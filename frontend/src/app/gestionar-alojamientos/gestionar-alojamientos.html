@@ -1,0 +1,49 @@
+<div class="admin-page-layout">
+  <div class="main-content">
+    <div class="page-header">
+      <div class="title-section">
+        <a routerLink="/admin" class="btn-back">← Volver al Panel</a>
+        <h1>Gestionar Alojamientos</h1>
+        <p class="subtitle">Control de inventario de hoteles, casas y estancias.</p>
+      </div>
+      <button class="btn-primary">+ Nuevo Alojamiento</button>
+    </div>
+
+    <div class="table-wrapper card-dark">
+      <div class="table-toolbar">
+        <div class="search-box"><span>🔍</span><input type="text" placeholder="Buscar alojamiento..."></div>
+      </div>
+      <div class="table-responsive">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Tipo</th>
+              <th>Capacidad</th>
+              <th>Precio</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (alo of alojamientos; track alo.id) {
+              <tr>
+                <td>#{{ alo.id }}</td>
+                <td class="fw-bold">{{ alo.nombre }}</td>
+                <td>{{ alo.tipo }}</td>
+                <td>{{ alo.capacidad }} pers.</td>
+                <td>{{ alo.precio }}</td>
+                <td><span class="status-badge" [class]="'status-' + alo.estado.toLowerCase()">{{ alo.estado }}</span></td>
+                <td class="actions-cell">
+                  <button class="btn-icon">✏️</button>
+                  <button class="btn-icon delete">🗑️</button>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

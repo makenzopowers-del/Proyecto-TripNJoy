@@ -1,0 +1,46 @@
+@if (ciudad) {
+  <div class="packs-container" [style.backgroundImage]="'url(' + ciudad.imagenFondo + ')'">
+    <div class="overlay">
+
+      <h1 class="titulo-seccion">Alojamientos en {{ ciudad.nombre }}</h1>
+
+      <div class="lista-alojamientos">
+        
+        @for (alojamiento of ciudad.alojamientos; track alojamiento.tipo; let i = $index) {
+          <div class="alojamiento-row" [class.reverse]="i % 2 !== 0">
+            
+            <div class="item-imagenes">
+              <div class="img-large" [style.backgroundImage]="'url(' + alojamiento.imagenes[0] + ')'"></div>
+              <div class="img-small-col">
+                <div class="img-small" [style.backgroundImage]="'url(' + alojamiento.imagenes[1] + ')'"></div>
+              </div>
+            </div>
+
+            <div class="alojamiento-info-card">
+              <h3 class="aloj-titulo">{{ alojamiento.tipo }}</h3>
+              <p class="aloj-desc">{{ alojamiento.descripcion }}</p>
+              
+              <div class="aloj-footer">
+                <div class="aloj-precio">
+                  <span class="desde">Desde</span>
+                  <div class="precio-linea">
+                    <span class="precio-num">{{ alojamiento.precioDesde }}€</span> 
+                    <span class="noche">/ noche</span>
+                  </div>
+                </div>
+                <button class="btn-naranja" (click)="irAReserva(alojamiento)">Reservar Alojamiento</button>
+              </div>
+            </div>
+
+          </div>
+        }
+      </div>
+
+      <div class="footer-botones">
+        <button class="btn-volver" (click)="volver()">Volver atrás</button>
+        <button class="btn-actividades" (click)="irActividades()">Ver actividades</button>
+      </div>
+
+    </div>
+  </div>
+}

@@ -1,0 +1,228 @@
+/* =========================================================
+   CONTENEDOR PRINCIPAL (LA SÁBANA OSCURA)
+   ========================================================= */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* =========================================================
+   TARJETA DEL LOGIN
+   ========================================================= */
+.modal-box.dark-theme {
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 450px;
+  padding: 40px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  color: rgb(0, 0, 0);
+  font-family: Arial, sans-serif;
+}
+
+/* Botón cerrar */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #000000;
+  transition: color 0.2s;
+}
+
+.close-btn:hover {
+  color: rgb(255, 111, 111);
+}
+
+/* =========================================================
+   CABECERA
+   ========================================================= */
+.auth-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.auth-logo {
+  width: 80px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.auth-title {
+  color: #003f5a;
+  font-size: 24px;
+  margin: 0 0 5px 0;
+  font-weight: 800;
+}
+
+.auth-subtitle {
+  color: #00597f;
+  font-size: 13px;
+  margin: 0;
+  font-weight: 700;
+}
+
+/* =========================================================
+   FORMULARIO
+   ========================================================= */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input-group label {
+  display: block;
+  font-weight: 800;
+  margin-bottom: 5px;
+  font-size: 13px;
+  color: #00597f;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid #a5a5a5;
+  border-radius: 8px;
+  padding: 0 12px;
+}
+
+.input-wrapper .icon {
+  color: #888;
+  font-size: 16px;
+}
+
+.input-wrapper input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 12px;
+  font-size: 14px;
+  outline: none;
+}
+
+.input-wrapper input::placeholder {
+  color: #666;
+}
+
+/* =========================================================
+   ENTRAR + OLVIDASTE CONTRASEÑA
+   ========================================================= */
+.forgot-pwd-container {
+  text-align: right;
+  margin-top: 5px;
+}
+
+.forgot-password {
+  color: #003f5a;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+.btn-primary {
+  background-color: #00597f;
+  color: #f1f1f1;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  box-shadow: 0 4px 11px rgba(1, 0.8, 0, 0.5);
+}
+
+.btn-primary:hover {
+  background-color: #cbc9d6;
+  color: black;
+}
+
+/* =========================================================
+   DIVISOR SOCIAL (SE MANTIENE)
+   ========================================================= */
+.social-divider {
+  text-align: center;
+  position: relative;
+  margin: 15px 0;
+}
+
+.social-divider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #d9d9d9;
+  z-index: 1;
+}
+
+.social-divider span {
+  background-color: white;
+  padding: 0 10px;
+  color: #666;
+  font-size: 12px;
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================================================
+   GOOGLE IDENTITY SERVICES BUTTON
+   ========================================================= */
+#googleBtn {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: 40px; /* Asegura que el botón tenga espacio */
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.auth-footer {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 13px;
+  color: #ccc;
+}
+
+.auth-footer a {
+  color: #003f5a;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 480px) {
+  .modal-box.dark-theme {
+    width: 90%;
+    padding: 30px;
+  }
+}

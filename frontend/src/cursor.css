@@ -1,0 +1,5 @@
+/* Definimos el cursor personalizado 'custom-cursor' */
+.custom-cursor {
+  /* Flecha oscura con borde Cyan (#06b6d4) */
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M4 2 L4 20 L9.5 14.5 L16 14.5 Z' fill='%230f172a' stroke='%2306b6d4' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E") 4 2, auto;
+}

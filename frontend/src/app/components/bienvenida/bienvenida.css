@@ -1,0 +1,72 @@
+/* =========================================================
+   CONTENEDOR PRINCIPAL Y FONDO
+   ========================================================= */
+.welcome-container {
+  /* Restamos el tamaño aproximado de tu header para que encaje bien */
+  min-height: calc(100vh - 80px); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* CAMBIA ESTA RUTA por la imagen de la ciudad nevada que tienes */
+  background: url('/ruta-a-tu-imagen-nevada.jpg') no-repeat center center;
+  background-size: cover;
+  position: relative;
+}
+
+/* Capa oscura semitransparente para que la imagen no quite protagonismo al texto */
+.welcome-container::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.4); 
+}
+
+/* Caja que agrupa el cartel y el botón para que queden por encima del fondo */
+.welcome-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px; /* Separación entre el cartel y el botón */
+}
+
+/* =========================================================
+   LA BURBUJA BEIGE DE "¡BIENVENIDO!"
+   ========================================================= */
+.welcome-bubble {
+  background-color: #e5dac8; /* El color beige exacto de tu captura */
+  padding: 40px 100px; /* Mucho espacio interior para que respire */
+  
+  /* Aquí hacemos la forma asimétrica (esquinas más redondeadas que otras) */
+  border-radius: 40px 100px 40px 100px; 
+  
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Sombra para que flote */
+}
+
+.welcome-bubble h1 {
+  margin: 0;
+  font-size: 4rem; /* Texto gigante */
+  color: #111; /* Casi negro */
+  /* Al tener Overlock SC en tu styles.css, esto se verá espectacular automáticamente */
+}
+
+/* =========================================================
+   BOTÓN AZUL GIGANTE
+   ========================================================= */
+.btn-blue-large {
+  background-color: #125b96; /* Tu azul característico */
+  color: white;
+  font-size: 1.5rem;
+  padding: 15px 50px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+.btn-blue-large:hover {
+  background-color: #0e4878; /* Un poco más oscuro al pasar el ratón */
+  transform: translateY(-3px); /* Efecto de que se levanta un poquito al hacer hover */
+}

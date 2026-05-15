@@ -1,0 +1,24 @@
+<app-header (abrirLogin)="isLoginVisible = true"></app-header>
+
+<router-outlet></router-outlet>
+
+<app-footer></app-footer>
+
+@if (isLoginVisible) {
+  <app-login (cerrarLogin)="isLoginVisible = false"></app-login>
+}
+
+@if (isPlanViajeVisible) {
+  <app-plan-viaje-1 (cerrar)="isPlanViajeVisible = false"></app-plan-viaje-1>
+}
+
+<app-que-ofrecemos (abrirLoginModal)="isLoginVisible = true"></app-que-ofrecemos>
+<app-que-ofrecemos (abrirRegistroModal)="isRegistroVisible = true"></app-que-ofrecemos>
+
+@if (isLoginVisible) {
+  <app-login />
+}
+
+@if (isRegistroVisible) {
+  <app-registro />
+}

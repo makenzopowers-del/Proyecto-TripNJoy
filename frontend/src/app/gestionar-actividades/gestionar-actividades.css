@@ -1,0 +1,235 @@
+/* --- Variables Profesionales de Color (Heredadas del Dashboard) --- */
+:host {
+  --primary-color: #00e5ff; /* CIAN para actividades. Cambia a #ffc107 para usuarios o #00e676 para alojamientos */
+  --bg-color: #0f172a; 
+  --card-bg: #1e293b; 
+  --text-main: #f8fafc; 
+  --text-muted: #94a3b8; 
+  --border-color: #334155; 
+}
+
+/* --- Layout Principal --- */
+.admin-page-layout {
+  min-height: 100vh;
+  background: 
+    linear-gradient(rgba(18, 18, 18, 0.8), rgba(0, 0, 0, 0.8)),
+    url('/fondo-admin.jpg') no-repeat center center;
+  background-size: cover;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  padding: 0 20px 40px 20px; 
+  display: flex;
+  justify-content: center;
+}
+
+.main-content {
+  width: 100%;
+  max-width: 1300px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 130px; /* Esquiva el header flotante */
+}
+
+/* --- Cabecera --- */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  padding: 5px 10px;
+  background: rgba(255, 255, 255, 0.05); /* Un fondo sutil */
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+  color: var(--primary-color);
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(-5px); /* Pequeño efecto de movimiento hacia la izquierda */
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  color: var(--text-main);
+}
+
+.subtitle {
+  margin: 8px 0 0 0;
+  color: var(--text-muted);
+}
+
+/* --- Botones --- */
+.btn-primary {
+  background-color: var(--primary-color);
+  color: #0f172a; /* Texto oscuro para contrastar con el cian */
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 229, 255, 0.3);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-outline:hover {
+  border-color: var(--text-main);
+}
+
+/* --- Tarjeta de la Tabla --- */
+.card-dark {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.table-toolbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  border-bottom: 1px solid var(--border-color);
+  gap: 15px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0 15px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.search-box input {
+  background: transparent;
+  border: none;
+  color: var(--text-main);
+  padding: 12px;
+  width: 100%;
+  outline: none;
+  font-family: inherit;
+}
+
+/* --- Tabla --- */
+.table-responsive {
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.admin-table th {
+  background-color: rgba(15, 23, 42, 0.5);
+  color: var(--text-muted);
+  font-weight: 600;
+  padding: 15px 20px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+.admin-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-main);
+}
+
+.admin-table tr:last-child td {
+  border-bottom: none;
+}
+
+.admin-table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.fw-bold {
+  font-weight: 600;
+}
+
+/* --- Badges de Estado --- */
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.status-active { background-color: rgba(0, 230, 118, 0.15); color: #00e676; }
+.status-paused { background-color: rgba(255, 193, 7, 0.15); color: #ffc107; }
+.status-full { background-color: rgba(244, 67, 54, 0.15); color: #f44336; }
+
+/* --- Iconos de Acción --- */
+.actions-cell {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-icon {
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.btn-icon:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.status-badge {
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+/* Estas clases ahora coinciden con act.estado.toLowerCase() */
+.status-activa { background: rgba(0, 229, 255, 0.1); color: #00e5ff; border: 1px solid #00e5ff; }
+.status-pausada { background: rgba(255, 193, 7, 0.1); color: #ffc107; border: 1px solid #ffc107; }
+.status-completa { background: rgba(244, 67, 54, 0.1); color: #f44336; border: 1px solid #f44336; }
+
+.empty-message {
+  text-align: center;
+  padding: 40px !important;
+  color: var(--text-muted);
+}
