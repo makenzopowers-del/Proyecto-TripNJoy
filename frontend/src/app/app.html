@@ -4,21 +4,23 @@
 
 <app-footer></app-footer>
 
+<!-- Modal de Login -->
 @if (isLoginVisible) {
   <app-login (cerrarLogin)="isLoginVisible = false"></app-login>
 }
 
+<!-- Modal de Registro -->
+@if (isRegistroVisible) {
+  <app-registro (cerrarRegistro)="isRegistroVisible = false"></app-registro>
+}
+
+<!-- Modal de Plan de Viaje -->
 @if (isPlanViajeVisible) {
   <app-plan-viaje-1 (cerrar)="isPlanViajeVisible = false"></app-plan-viaje-1>
 }
 
-<app-que-ofrecemos (abrirLoginModal)="isLoginVisible = true"></app-que-ofrecemos>
-<app-que-ofrecemos (abrirRegistroModal)="isRegistroVisible = true"></app-que-ofrecemos>
-
-@if (isLoginVisible) {
-  <app-login />
-}
-
-@if (isRegistroVisible) {
-  <app-registro />
-}
+<!-- Sección Qué Ofrecemos (sin duplicados) -->
+<app-que-ofrecemos 
+  (abrirLoginModal)="isLoginVisible = true"
+  (abrirRegistroModal)="isRegistroVisible = true">
+</app-que-ofrecemos>
